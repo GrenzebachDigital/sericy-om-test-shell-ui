@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 service_type: ui
-service_name: sericy-visu-template-ui
+service_name: sericy-om-test-shell-ui
 
 resources:
    limits:

@@ -4,7 +4,7 @@
         "baseUrl": "./",
         "downlevelIteration": true,
         "importHelpers": true,
-        "outDir": "./sericy-visu-template-ui/dist/out-tsc",
+        "outDir": "./sericy-om-test-shell-ui/dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
         "emitDecoratorMetadata": true,

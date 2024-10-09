@@ -11,11 +11,18 @@ import { HttpErrorHandlerModule } from '@grenzebachdigital/visu-components/http-
 import { ThemeModule, VisuEngineModule } from '@grenzebachdigital/visu-engine';
 import { VisuEngineConfig } from '@grenzebachdigital/visu-engine/engine-config';
 import { I18nCustomTranslateLoader, I18nInterceptor, I18nService } from '@grenzebachdigital/visu-engine/i18n';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { BasicLayoutComponent } from './modules/shared/basic-layout/basic-layout.component';
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { DynamicFederationLoaderModule } from "@grenzebachdigital/visu-compose/module-federation";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { RootTranslate, TranslateShareModule } from "@grenzebachdigital/visu-compose/module-federation-translations";
 
 @NgModule({
     declarations: [
@@ -23,6 +30,9 @@ import { BasicLayoutComponent } from './modules/shared/basic-layout/basic-layout
         BasicLayoutComponent
     ],
     imports: [
+        DynamicFederationLoaderModule,
+        MatButtonModule,
+        MatIconModule,
         AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
@@ -44,11 +54,19 @@ import { BasicLayoutComponent } from './modules/shared/basic-layout/basic-layout
                 deps: [I18nService]
             }
         }),
+        TranslateShareModule.forRoot(TranslateService as unknown as RootTranslate),
         VisuEngineModule.forRoot({
              appName: environment.appName,
-             domainUrl: (environment as { domainUrl?: string }).domainUrl, // domain override for development
+             i18nLibraryFolders: ['visu-compose'],
+             domainUrl: 'https://edge01.local.sericy.io'
              } as VisuEngineConfig),
-        VisuComponentsModule
+        VisuComponentsModule,
+        StoreModule.forRoot(),
+        EffectsModule.forRoot([]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            logOnly: environment.production, // Restrict extension to log-only mode
+        })
     ],
     providers: [
         {

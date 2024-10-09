@@ -1,0 +1,15 @@
+<window-content (bringToFront)="bringFront()" (closeClick)="closeDialog()" [title]="orderName"
+                [fullscreenActivated]="fullscreenActivated" (windowResized)="windowResized($event)"
+                (fullScreen)="fullScreen()" (closeFullScreen)="closeFullScreen()"
+                (doubleClickFullScreen)="toggleFullScreen(fullscreenActivated)">
+    <dynamic-federation-loader
+            [inputs]="inputs"
+            [outputHandlers]="outputHandlers"
+            [federationConfig]="moduleFederationLoaderConfiguration">
+    </dynamic-federation-loader>
+    <div mat-dialog-actions class="order-details">
+        <button mat-raised-button color="accent" mat-dialog-close>
+            {{'shared.buttons.closeButton' | translate}}
+        </button>
+    </div>
+</window-content>

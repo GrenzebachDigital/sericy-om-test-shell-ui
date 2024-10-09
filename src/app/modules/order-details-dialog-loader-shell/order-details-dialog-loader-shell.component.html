@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+                <div class="mb-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Order ID</mat-label>
+                        <input
+                                matInput
+                                type="number"
+                                [(ngModel)]="orderId"
+                                name="orderId"
+                                required
+                                min="1"
+                                placeholder="Order ID"
+                        />
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-primary w-100" [disabled]="orderForm.invalid">
+                    Open Order Details
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

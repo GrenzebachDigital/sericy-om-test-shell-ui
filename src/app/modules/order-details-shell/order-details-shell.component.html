@@ -1,0 +1,12 @@
+<div class="shell-container">
+    <div class="row mt-5">
+        <h2>{{orderName}}</h2>
+    </div>
+    <div class="row mt-5">
+        <dynamic-federation-loader
+                [inputs]="inputs"
+                [outputHandlers]="outputHandlers"
+                [federationConfig]="moduleFederationLoaderConfiguration">
+        </dynamic-federation-loader>
+    </div>
+</div>

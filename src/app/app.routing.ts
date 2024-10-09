@@ -11,12 +11,12 @@ export const appRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/order-details-dialog-shell',
         pathMatch: 'full'
       },
       {
-        path: 'home',
-        loadChildren: () => import('../app/modules/home/home.module').then(m => m.HomeModule)
+        path: 'order-details-dialog-shell',
+        loadChildren: () => import('../app/modules/order-details-dialog-loader-shell/order-details-dialog-loader-shell.module').then(m => m.OrderDetailsDialogLoaderShellModule)
       },
       {
         path: '',
@@ -32,7 +32,7 @@ export const appRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/home',
+    redirectTo: '/order-details-dialog-shell',
     pathMatch: 'full'
   }
 ];
