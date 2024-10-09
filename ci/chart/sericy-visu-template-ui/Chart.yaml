@@ -1,0 +1,10 @@
+apiVersion: v2
+name: sericy-visu-template-ui
+description: Visu Template UI
+type: application
+version: 0.0.0-placeholder
+appVersion: "0.0.0-placeholder"
+dependencies:
+  - name: sericy-devops-chart-lib
+    version: "0.1.0"
+    repository: https://helm-chart-repo.sericy.io

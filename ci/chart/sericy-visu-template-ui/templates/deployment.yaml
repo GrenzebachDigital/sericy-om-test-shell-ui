@@ -1,0 +1,1 @@
+{{- include "sericy-devops-chart-lib.deployment-ui" . }}

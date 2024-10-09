@@ -1,0 +1,17 @@
+{
+    "name": "sericy-visu-template-ui",
+    "short_name": "sericy-visu-template-ui",
+    "theme_color": "#b3b3b3",
+    "background_color": "#f0f0f0",
+    "display": "standalone",
+    "scope": "./",
+    "start_url": "./",
+    "icons": [
+        {
+            "src": "assets/icons/Grenzebach_Logo.png",
+            "sizes": "1949x308",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

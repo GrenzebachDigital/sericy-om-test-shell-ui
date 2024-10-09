@@ -1,0 +1,25 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "downlevelIteration": true,
+        "importHelpers": true,
+        "outDir": "./sericy-visu-template-ui/dist/out-tsc",
+        "sourceMap": true,
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "Node",
+        "target": "ES2022",
+        "module": "ESNext",
+        "lib": [
+            "ES2022",
+            "DOM"
+        ],
+        "useDefineForClassFields": false,
+        "strict": true
+    },
+    "angularCompilerOptions": {
+        "preserveWhitespaces": false
+    }
+}

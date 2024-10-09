@@ -1,0 +1,194 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+        "analytics": false
+    },
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "sericy-visu-template-ui": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "polyfills": "src/polyfills.ts",
+                        "assets": [
+                            "src/assets",
+                            "src/favicon.ico",
+                            "src/manifest.webmanifest",
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/security-kit/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/visu-engine/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/visu-components/assets",
+                                "output": "/assets"
+                            }
+                        ],
+                        "styles": [
+                            {
+                                "input": "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                                "inject": true,
+                                "bundleName": "bootstrap"
+                            },
+                            {
+                                "input": "node_modules/bootstrap/dist/css/bootstrap-utilities.min.css",
+                                "inject": true,
+                                "bundleName": "bootstrap"
+                            },
+                            {
+                                "input": "node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
+                                "inject": true,
+                                "bundleName": "bootstrap"
+                            },
+                            {
+                                "input": "node_modules/@grenzebachdigital/visu-styles/theme.scss",
+                                "inject": true,
+                                "bundleName": "theme"
+                            },
+                            "src/styles.scss"
+                        ],
+                        "scripts": [],
+                        "baseHref": "/sericy-visu-template-ui/",
+                        "ngswConfigPath": "ngsw-config.json",
+                        "serviceWorker": true
+                    },
+                    "configurations": {
+                        "dev": {
+                            "budgets": [
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.dev.ts"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "dev"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "sericy-visu-template-ui:build",
+                        "port": 4202,
+                        "host": "localhost"
+                    },
+                    "configurations": {
+                        "dev": {
+                            "browserTarget": "sericy-visu-template-ui:build:dev"
+                        },
+                        "development": {
+                            "browserTarget": "sericy-visu-template-ui:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "sericy-visu-template-ui:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "karmaConfig": "./karma.conf.js",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.spec.json",
+                        "scripts": [],
+                        "styles": [
+                            {
+                                "input": "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                                "inject": true,
+                                "bundleName": "bootstrap"
+                            },
+                            {
+                                "input": "node_modules/bootstrap/dist/css/bootstrap-utilities.min.css",
+                                "inject": true,
+                                "bundleName": "bootstrap"
+                            },
+                            {
+                                "input": "node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
+                                "inject": true,
+                                "bundleName": "bootstrap"
+                            },
+                            {
+                                "input": "node_modules/@grenzebachdigital/visu-styles/theme.scss",
+                                "inject": true,
+                                "bundleName": "theme"
+                            },
+                            "src/styles.scss"
+                        ],
+                        "assets": [
+                            "src/assets",
+                            "src/favicon.ico",
+                            "src/manifest.webmanifest",
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/security-kit/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/visu-engine/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/visu-components/assets",
+                                "output": "/assets"
+                            }
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "src/**/*.ts",
+                            "src/**/*.html"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "schematics": {
+        "@schematics/angular:component": {
+            "prefix": "app",
+            "style": "scss"
+        },
+        "@schematics/angular:directive": {
+            "prefix": "app"
+        }
+    }
+}

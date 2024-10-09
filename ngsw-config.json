@@ -1,0 +1,66 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "navigationRequestStrategy": "freshness",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.scss",
+          "/*.svg",
+          "/*.eot",
+          "/*.woff",
+          "/*.woff2",
+          "/*.ttf",
+          "/*.js",
+          "/*.json",
+          "/*.txt",
+          "/*.png"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "security",
+      "urls": [
+        "/sericy-security-api/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "28d",
+        "timeout": "0s"
+      }
+    },
+    {
+      "name": "settings",
+      "urls": [
+        "/sericy-settings-api/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "28d",
+        "timeout": "0s"
+      }
+    }
+
+  ]
+}

@@ -1,0 +1,6 @@
+dependencies:
+- name: sericy-devops-chart-lib
+  repository: https://helm-chart-repo.sericy.io
+  version: 0.1.0
+digest: sha256:ee0e3cfd7ff3632bf4d5cdee4ac89189969132e168636cff1a7dd6fec24497da
+generated: "2024-07-17T08:04:34.3107479+02:00"

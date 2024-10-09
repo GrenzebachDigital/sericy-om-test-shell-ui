@@ -1,0 +1,96 @@
+{
+    "root": true,
+    "ignorePatterns": [
+        "projects/**/*"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "*.ts"
+            ],
+            "parserOptions": {
+                "project": [
+                    "tsconfig.json",
+                    "e2e/tsconfig.json"
+                ],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:@angular-eslint/recommended",
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking"
+            ],
+            "rules": {
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "style": "kebab-case",
+                        "type": "element"
+                    }
+                ],
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "style": "camelCase",
+                        "type": "attribute"
+                    }
+                ],
+                "@typescript-eslint/unbound-method": [
+                    "error",
+                    {
+                        "ignoreStatic": true
+                    }
+                ],
+                "@typescript-eslint/no-unused-vars": [
+                    "warn",
+                    {
+                        "argsIgnorePattern": "^_"
+                    }
+                ],
+                "no-trailing-spaces": "error",
+                "eol-last": [
+                    "error",
+                    "always"
+                ]
+            }
+        },
+        {
+            "files": [
+                "*.html"
+            ],
+            "extends": [
+                "plugin:@angular-eslint/template/recommended"
+            ],
+            "rules": {}
+        },
+        {
+            "files": [
+                "src/**/*.spec.ts",
+                "src/**/*.d.ts"
+            ],
+            "parserOptions": {
+                "project": "./src/tsconfig.spec.json"
+            },
+            "extends": [
+                "plugin:jasmine/recommended"
+            ],
+            "plugins": [
+                "jasmine"
+            ],
+            "env": {
+                "jasmine": true
+            },
+            "rules": {
+                "class-methods-use-this": "off",
+                "@typescript-eslint/no-unsafe-member-access": "off",
+                "@typescript-eslint/no-unsafe-assignment": "off",
+                "@typescript-eslint/no-unsafe-call": "off",
+                "@typescript-eslint/unbound-method": "off",
+                "@typescript-eslint/restrict-template-expressions": "off"
+            }
+        }
+    ]
+}
