@@ -23,6 +23,7 @@ import { DynamicFederationLoaderModule } from "@grenzebachdigital/visu-compose/m
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { RootTranslate, TranslateShareModule } from "@grenzebachdigital/visu-compose/module-federation-translations";
+import { CombinedOrderListLoaderShellComponent } from './modules/combined-order-list-loader-shell/combined-order-list-loader-shell.component';
 
 @NgModule({
     declarations: [

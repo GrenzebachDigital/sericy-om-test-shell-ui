@@ -11,17 +11,21 @@ export const appRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/order-details-dialog-loader-shell',
+        redirectTo: '/order-list-loader-shell',
         pathMatch: 'full'
+      },
+      {
+        path: 'order-list-loader-shell',
+        loadChildren: () => import('../app/modules/combined-order-list-loader-shell/combined-order-list-loader-shell.module').then(m => m.CombinedOrderListLoaderShellModule)
       },
       {
         path: 'order-details-dialog-loader-shell',
         loadChildren: () => import('../app/modules/order-details-dialog-loader-shell/order-details-dialog-loader-shell.module').then(m => m.OrderDetailsDialogLoaderShellModule)
       },
-      /*{
+      {
         path: 'order-details-shell',
         loadChildren: () => import('../app/modules/order-details-shell/order-details-shell.module').then(m => m.OrderDetailsShellModule)
-      },*/
+      },
       {
         path: '',
         loadChildren: () =>
