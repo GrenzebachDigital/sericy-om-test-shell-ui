@@ -5,8 +5,7 @@ import {
 
 @Component({
   selector: 'app-combined-order-list-loader-shell',
-  templateUrl: './combined-order-list-loader-shell.component.html',
-  styleUrls: ['./combined-order-list-loader-shell.component.scss']
+  templateUrl: './combined-order-list-loader-shell.component.html'
 })
 export class CombinedOrderListLoaderShellComponent {
   private orderNameEmitter = new EventEmitter<string>();
