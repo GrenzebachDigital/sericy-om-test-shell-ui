@@ -2,29 +2,31 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
-import { OrderDetailsDialogLoaderShellComponent } from "./order-details-dialog-loader-shell.component";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { OrderDetailsDialogLoaderShellRoutingModule } from "./order-details-dialog-loader-shell-routing.module";
+import {
+  OrderDetailsDialogShellRoutingModule
+} from "./order-details-dialog-shell-routing.module";
 import { WindowDialogModule, WindowDialogService } from "@grenzebachdigital/visu-compose/window-dialog";
-import { OrderDetailsDialogShellComponent } from "../order-details-dialog-shell/order-details-dialog-shell.component";
-import { DynamicFederationLoaderModule } from "@grenzebachdigital/visu-compose/module-federation";
 import { TranslateModule } from "@ngx-translate/core";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { DynamicFederationLoaderModule } from "@grenzebachdigital/visu-compose/module-federation";
 
 @NgModule({
-  declarations: [OrderDetailsDialogLoaderShellComponent, OrderDetailsDialogShellComponent],
+  declarations: [],
   imports: [
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
     CommonModule,
-    OrderDetailsDialogLoaderShellRoutingModule,
+    OrderDetailsDialogShellRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule,
+    MatProgressBarModule,
     WindowDialogModule,
-    DynamicFederationLoaderModule,
-    TranslateModule
+    DynamicFederationLoaderModule
   ],
   providers: [WindowDialogService]
 })
-export class OrderDetailsDialogLoaderShellModule { }
+export class OrderDetailsDialogShellModule { }

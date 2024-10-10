@@ -3,7 +3,7 @@ export const MAINMENUITEMS = [
         title: 'Home',
         children: [
             {
-                title: 'Home page', route: '/'
+                title: 'Order Details Shell', route: '/'
             }
         ]
     }

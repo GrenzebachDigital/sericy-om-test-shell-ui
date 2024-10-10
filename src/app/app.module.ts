@@ -58,7 +58,7 @@ import { RootTranslate, TranslateShareModule } from "@grenzebachdigital/visu-com
         VisuEngineModule.forRoot({
              appName: environment.appName,
              i18nLibraryFolders: ['visu-compose'],
-             domainUrl: 'https://edge01.local.sericy.io'
+             domainUrl: (environment as { domainUrl?: string }).domainUrl
              } as VisuEngineConfig),
         VisuComponentsModule,
         StoreModule.forRoot(),

@@ -1,11 +1,6 @@
 import { Component, EventEmitter, Inject, NgZone, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { TranslateModule } from "@ngx-translate/core";
-import { CommonModule } from "@angular/common";
-import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from "@angular/material/dialog";
-import { MatButtonModule } from "@angular/material/button";
-import { WindowDialogComponent, WindowDialogModule } from "@grenzebachdigital/visu-compose/window-dialog";
-import { DynamicFederationLoaderModule } from "@grenzebachdigital/visu-compose/module-federation";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { WindowDialogComponent } from "@grenzebachdigital/visu-compose/window-dialog";
 import {
   DynamicComponentInputs,
   DynamicComponentOutputs,
@@ -22,17 +17,7 @@ import { Subject, takeUntil } from "rxjs";
 @Component({
   selector: 'om-order-details-dialog-shell',
   templateUrl: './order-details-dialog-shell.component.html',
-  styleUrls: ['./order-details-dialog-shell.component.scss'],
-  standalone: true,
-  imports: [
-    TranslateModule,
-    CommonModule,
-    MatProgressBarModule,
-    MatDialogModule,
-    MatButtonModule,
-    WindowDialogModule,
-    DynamicFederationLoaderModule
-  ]
+  styleUrls: ['./order-details-dialog-shell.component.scss']
 })
 export class OrderDetailsDialogShellComponent extends WindowDialogComponent implements OnInit, OnDestroy {
   public inputs: DynamicComponentInputs = {};
@@ -46,6 +31,7 @@ export class OrderDetailsDialogShellComponent extends WindowDialogComponent impl
   };
 
   public moduleFederationLoaderConfiguration = {
+    //have relative URL here instead, or for testing point to correct env
     remoteEntryUrl: `http://localhost:4200/sericy-om-orders-manager-ui/remoteEntryExposedOrderDetailsModule.js`,
     moduleClassName: 'ExposedOrderDetailsModule',
     componentClassName: 'exposedOrderDetailsComponent',

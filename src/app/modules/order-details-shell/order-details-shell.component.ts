@@ -8,6 +8,7 @@ import { Subject, takeUntil } from "rxjs";
 
 /*
 * This is a sample shell component that can act as reference for teams who want to use exposed order details component in their project.
+* This component showcases the loading of order details via routing use case.
 * NOTE: it is left to the users of the exposed order details component whether to show it as window dialog OR normal page, therefore, the implementation of
 * the template will differ a little. For using it within a window dialog use commented code instead.
 * */
@@ -18,7 +19,8 @@ import { Subject, takeUntil } from "rxjs";
 })
 export class OrderDetailsShellComponent implements OnInit, OnDestroy {
   public inputs: DynamicComponentInputs = {
-    orderId: 312
+    //sample order ID, replace with correct one
+    orderId: 316
   };
 
   private orderNameEmitter = new EventEmitter<string>();
@@ -30,7 +32,8 @@ export class OrderDetailsShellComponent implements OnInit, OnDestroy {
   };
 
   public moduleFederationLoaderConfiguration = {
-    remoteEntryUrl: '/sericy-om-orders-manager-ui/remoteEntryExposedOrderDetailsModule.js',
+    //have relative URL here instead, or for testing point to correct env
+    remoteEntryUrl: 'http://localhost:4200/sericy-om-orders-manager-ui/remoteEntryExposedOrderDetailsModule.js',
     moduleClassName: 'ExposedOrderDetailsModule',
     componentClassName: 'exposedOrderDetailsComponent',
   } as DynamicFederationLoaderModel;

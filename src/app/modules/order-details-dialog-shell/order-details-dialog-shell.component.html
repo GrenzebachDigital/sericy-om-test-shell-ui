@@ -4,6 +4,7 @@
                 (doubleClickFullScreen)="toggleFullScreen(fullscreenActivated)">
     <dynamic-federation-loader
             [inputs]="inputs"
+            [hostInjector]="hostInjector"
             [outputHandlers]="outputHandlers"
             [federationConfig]="moduleFederationLoaderConfiguration">
     </dynamic-federation-loader>
