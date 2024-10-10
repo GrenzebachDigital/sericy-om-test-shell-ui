@@ -6,13 +6,13 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "sericy-visu-template-ui": {
+        "sericy-om-test-shell-ui": {
             "root": "",
             "sourceRoot": "src",
             "projectType": "application",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "builder": "ngx-build-plus:browser",
                     "options": {
                         "outputPath": "dist",
                         "index": "src/index.html",
@@ -36,6 +36,11 @@
                             {
                                 "glob": "**/*",
                                 "input": "node_modules/@grenzebachdigital/visu-components/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@grenzebachdigital/visu-compose/assets",
                                 "output": "/assets"
                             }
                         ],
@@ -63,8 +68,9 @@
                             "src/styles.scss"
                         ],
                         "scripts": [],
-                        "baseHref": "/sericy-visu-template-ui/",
+                        "baseHref": "/sericy-om-test-shell-ui/",
                         "ngswConfigPath": "ngsw-config.json",
+                        "extraWebpackConfig": "webpack.config.js",
                         "serviceWorker": true
                     },
                     "configurations": {
@@ -95,26 +101,30 @@
                     "defaultConfiguration": "dev"
                 },
                 "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "builder": "ngx-build-plus:dev-server",
                     "options": {
-                        "browserTarget": "sericy-visu-template-ui:build",
+                        "browserTarget": "sericy-om-test-shell-ui:build",
                         "port": 4202,
-                        "host": "localhost"
+                        "host": "localhost",
+                        "publicHost": "http://localhost:4202",
+                        "extraWebpackConfig": "webpack.config.js"
                     },
                     "configurations": {
                         "dev": {
-                            "browserTarget": "sericy-visu-template-ui:build:dev"
+                            "browserTarget": "sericy-om-test-shell-ui:build:dev",
+                            "extraWebpackConfig": "webpack.config.js"
                         },
                         "development": {
-                            "browserTarget": "sericy-visu-template-ui:build:development"
+                            "browserTarget": "sericy-om-test-shell-ui:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
                 },
                 "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "builder": "ngx-build-plus:extract-i18n",
                     "options": {
-                        "browserTarget": "sericy-visu-template-ui:build"
+                        "browserTarget": "sericy-om-test-shell-ui:build",
+                        "extraWebpackConfig": "webpack.config.js"
                     }
                 },
                 "test": {

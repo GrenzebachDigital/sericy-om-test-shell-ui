@@ -1,6 +1,6 @@
 {
-    "name": "sericy-visu-template-ui",
-    "short_name": "sericy-visu-template-ui",
+    "name": "sericy-om-test-shell-ui",
+    "short_name": "sericy-om-test-shell-ui",
     "theme_color": "#b3b3b3",
     "background_color": "#f0f0f0",
     "display": "standalone",
