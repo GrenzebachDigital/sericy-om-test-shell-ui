@@ -15,7 +15,7 @@ export class OrderDetailsDialogLoaderShellComponent {
   readonly dialogMinWidth = '968px';
   readonly dialogMinHeight = '500px';
 
-  constructor(private windowDialog: WindowDialogService, public hostInjector: Injector) {
+  constructor(private windowDialog: WindowDialogService, private hostInjector: Injector) {
     this.orderId = 1;
   }
 
